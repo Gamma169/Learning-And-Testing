@@ -8,7 +8,7 @@ public class Radix {
 	private static ArrayList<LinkedList> bucketsOdd;
 	//private static LinkedList<Integer>[] buckets;
 	
-
+	private static LinkedList[] test;
 
 
 	public static void RadixLSD(int[] arr) {
@@ -97,7 +97,9 @@ public class Radix {
 		RadixLSD(array);
 		PrintArray(array);
 		
-		int i = 4;
-		System.out.println(  (int)((1234 % Math.pow(10, i+1) / Math.pow(10, i)))  );
+		//int i = 4;
+		//System.out.println(  (int)((1234 % Math.pow(10, i+1) / Math.pow(10, i)))  );
+
+		//test = new LinkedList[4];
 	}
 }
