@@ -1,12 +1,37 @@
 public class QuickSort {
 
 
-	public void Quick(int[] arr) {
-		QuickSortHelper(arr, 0, arr.length-1);
+	public static void Quick(int[] arr) {
+		QuickSortHelper(arr, 1, arr.length-2);
 	}
 
 
-	public void QuickSortHelper(int[] arr, int first, int last) {
+	public static void QuickSortHelper(int[] arr, int first, int last) {
+		if(first < last) {
+			int p = Partition2(arr, first, last);
+			QuickSortHelper(arr, first, p);
+			QuickSortHelper(arr, p+1, last);
+		}
+	}
+
+	public static int Partition2(int[] arr, int first, int last) {
+		int pivot = arr[first];
+		int i = first - 1;
+		int j = last + 1;
+		while (true) {
+			
+			while (arr[i] < pivot) 
+				i++;	
+			while (arr[j] > pivot) 
+				j--;
+
+			if (i>=j)
+				return j;
+			
+			int foo = arr[i];
+			arr[i] = arr[j];
+			arr[j] = foo;
+		}
 
 
 	}

@@ -29,7 +29,7 @@ public class InsertionSort {
 
 	public static void InsertionSortArray2(int[] arr) {
 		for (int i=1; i<arr.length; i++) {
-			for (intj  = i-1, num = arr[i]; j>=0 && num < arr[j]; arr[j] = num, j--)
+			for (int j  = i-1, num = arr[i]; j>=0 && num < arr[j]; arr[j] = num, j--)
 				arr[j+1] = arr[j];
 		}
 	}
