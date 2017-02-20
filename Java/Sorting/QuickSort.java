@@ -16,27 +16,41 @@ public class QuickSort {
 
 	public static int Partition2(int[] arr, int first, int last) {
 		int pivot = arr[first];
-		int i = first - 1;
-		int j = last + 1;
-		while (true) {
+		int i = first;
+		int j = last;
+		boolean decreasing = true;
+		while (i < j) {
 			
-			while (arr[i] < pivot) 
-				i++;	
-			while (arr[j] > pivot) 
-				j--;
-
+			if (decreasing) {
+				if (arr[j] < pivot) {
+					Swap(arr, i, j);
+					decreasing = false;
+				}
+				else
+					j--;
+			}
+			else {
+				if (arr[i] > pivot) {
+					Swap(arr, i, j);
+					decreasing = false;
+				}
+				else
+					i++;
+			}
+			
 			if (i>=j)
 				return j;
-			
-			int foo = arr[i];
-			arr[i] = arr[j];
-			arr[j] = foo;
 		}
-
-
+		System.out.println("This Shouldn't be printed");
+		return i;
 	}
 
 
+public static void Swap(int[] arr, int i, int j) {
+	int foo = arr[i];
+	arr[i] = arr[j];
+	arr[j] = foo;
+}
 
 public static void PrintArray(int[] arr) {
 		for (int i=0; i<arr.length; i++)
