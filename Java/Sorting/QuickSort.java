@@ -2,7 +2,7 @@ public class QuickSort {
 
 
 	public static void Quick(int[] arr) {
-		QuickSortHelper(arr, 1, arr.length-2);
+		QuickSortHelper(arr, 0, arr.length-1);
 	}
 
 
@@ -32,7 +32,7 @@ public class QuickSort {
 			else {
 				if (arr[i] > pivot) {
 					Swap(arr, i, j);
-					decreasing = false;
+					decreasing = true;
 				}
 				else
 					i++;
