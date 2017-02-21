@@ -2,10 +2,10 @@ public class MergeSort {
 
 	public static int[] array2;
 
-	public static void MergeSort(int[] arr) {
-		array2 = new int[arr.length];
+	public static int[] MergeSort(int[] arr) {
+		//array2 = new int[arr.length];
 		//MergeSortHelper2(arr, array2, 0, arr.length-1, false);
-		MergeSortHelper(arr);
+		return MergeSortHelper(arr);
 	}
 
 
@@ -27,40 +27,47 @@ public class MergeSort {
 			left = MergeSortHelper(left);
 			right = MergeSortHelper(right);
 
-			/*
-			int i=0, j=0, place = 0;
-			while (i<left.length && j<right.length) {
-				if (i < left.length) {
-					if (j<right.length) {
-						if (left[i] < right[j]) {
-							arr[place] = left[i];
-							i++;
-							place++;
-						}
-						else {
-							arr[place] = right[j];
-							j++;
-							place++;
-						}
-					}
-					arr[place] = left[i];
-					i++;
-					place++;
-				}
-				else {
-					arr[place] = right[i];
-					j++;
-					place++;
-				}
-			}
-
-			*/
+			//int[] retrurner = MergeArrays(left, right);
+			//return retrurner;
+			arr = MergeArrays(left, right);
 			return arr;
 		}
 	}
 
-	public static int[] MergeArrays(int[] a, int[] b) {
+	public static int[] MergeArrays(int[] left, int[] right) {
+		int[] newarr = new int[left.length + right.length];
 
+		int i=0, j=0, place = 0;
+
+		while (i<left.length || j<right.length) {
+			//PrintArray(newarr);
+			if (i < left.length) {
+				if (j<right.length) {
+					if (left[i] < right[j]) {
+						newarr[place] = left[i];
+						i++;
+						place++;
+					}
+					else {
+						newarr[place] = right[j];
+						j++;
+						place++;
+					}
+				}
+				else {
+					//System.out.println("test");
+					newarr[place] = left[i];
+					i++;
+					place++;
+				}
+			}
+			else {
+				newarr[place] = right[j];
+				j++;
+				place++;
+			}
+		}
+		return newarr;
 	}
 
 
@@ -83,18 +90,20 @@ public class MergeSort {
 
 	public static void main(String[] args) {
 
-		int[] array = new int[]{4, 3, 8, 1, 87, 34, 0, 0, 12, 53, 7, 305, 2540};
+		int[] array = new int[]{4, 3, 8, 1, 87, 34, 0, 2540, 0, 12, 53, 7, 305};
 
-		//PrintArray(array);	
-		//MergeSort(array);
+		PrintArray(array);	
+		int[] newarr = MergeSort(array);
+		PrintArray(newarr);
 		//PrintArray(array);
 		
 
-
+		/*
 		int[] test1 = new int[]{1, 3, 5};
-		int[] test2 = new int[]{2, 4}
+		int[] test2 = new int[]{2, 4, 6, 8};
 		int[] test3 = MergeArrays(test1, test2);
-
+		PrintArray(test3);
+		*/
 
 		//int i = 4;
 		//System.out.println(  (int)((1234 % Math.pow(10, i+1) / Math.pow(10, i)))  );
