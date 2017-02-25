@@ -73,13 +73,13 @@ public class DynamicCoins{
 
 	public static void main(String[] args) {
 
-		int[] coinVals = new int[]{1, 3, 5};
+		int[] coinVals = new int[]{3, 5, 7};
 
 		int to = 11;
 
 		DynamicCoins dc = new DynamicCoins(coinVals, to);
 		System.out.println(dc.MinCoinsToValue(11));
-
+		PrintArray(dc.numCoinsToValue);
 		//PrintArray(numCoinsToValue);
 		//PrintArray(coinValues);
 
