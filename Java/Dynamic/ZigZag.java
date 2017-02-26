@@ -29,7 +29,7 @@ public class ZigZag {
 			
 
 			boolean updatedChain = false;
-			for(int j=0; j<chains.size(); j++) {
+			for(int j=0; j<chains.size() && !updatedChain; j++) {
 				if(chains.get(j).zigzag == 0) {
 					if (arr[i] > chains.get(j).lastValue) {
 						UpdateChain(chains.get(j), arr[i], -1);
@@ -99,7 +99,7 @@ public class ZigZag {
 
 	ZigZag zig = new ZigZag();
 
-	int longest = zig.FindLongestChain(array3);
+	int longest = zig.FindLongestChain(array5);
 
 	System.out.println("Num Chains: " + zig.chains.size());
 	System.out.println("Longest Chain: " + longest);
