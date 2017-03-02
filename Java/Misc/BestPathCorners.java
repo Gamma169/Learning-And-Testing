@@ -35,7 +35,6 @@ public class BestPathCorners {
 			for(int i=arrX-1; i>=0; i--){
 				int valRight=0;
 				int valDown=0;
-				if(i<arrX-1) 
 					valRight = list[i+1][j];
 				else 
 					valRight = -Integer.MAX_VALUE;
