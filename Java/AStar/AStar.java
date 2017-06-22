@@ -39,7 +39,7 @@ public class AStar{
 		Coor coor = new Coor(-1,-1);
 		int lowestVal = Integer.MAX_VALUE;
 		for (int i=0; i<vals.length; i++) {
-			for(int j=0; j<vals.[].length; j++) {
+			for(int j=0; j<vals[0].length; j++) {
 				if (map[i][j] != 1 && !visited[i][j] && vals[i][j] < lowestVal){
 					lowestVal = vals[i][j];
 					coor.x = i;
@@ -50,9 +50,9 @@ public class AStar{
 		return coor;
 	}
 
-	public static int CalculateHeuristicToCorner(int x, int y) {
-		int distFromOrigin = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
-		int distToCorner = Math.sqrt(Math.pow((map.length-1) - x) + Math.pow((map[0].length-1) - y));
+	public static int CalculateCostToCorner(int x, int y) {
+		int distFromOrigin = (int)(10 * Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)));
+		int distToCorner = (int)(Math.sqrt(Math.pow((map.length-1) - x, 2) + Math.pow((map[0].length-1) - y, 2)));
 		return distFromOrigin + distToCorner;
 	}
 
@@ -76,7 +76,7 @@ public class AStar{
 
 			visited[xpos][ypos] = true;
 
-			if (xpos == maze.length-1 && ypos = maze[0].length-1){
+			if (xpos == maze.length-1 && ypos == maze[0].length-1){
 				finished=true;
 				break;
 			}
@@ -84,7 +84,10 @@ public class AStar{
 			//Check Top Bot Left and Right and set their heuristic
 
 		}
+		if (coor.x == -1)
+			return -1;
 
+		return 0;
 	}
 
 
